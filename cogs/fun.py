@@ -66,6 +66,14 @@ class Fun_Commands(commands.Cog):
         await self.randomimageapi(ctx, "https://random-d.uk/api/v1/random", "url")
 
     @commands.command()
+    async def tag(self, ctx: Context[BotT], user: discord.Member = None):
+        """ Tag someone """
+        if not user :
+            return await ctx.send("Error: specify a username")
+        else :
+            await ctx.send(f"{user.name} was pinged by **{ctx.author.name}**")
+
+    @commands.command()
     async def cheh(self, ctx: Context[BotT], user: discord.Member = None):
         """ Cheh someone """
         if not user :
@@ -214,7 +222,7 @@ class Fun_Commands(commands.Cog):
     async def slot(self, ctx: Context[BotT]):
         """ Roll the slot machine """
         a, b, c = [
-            random.choice("🍎🍊🍐🍋🍉🍇🍓🍒")
+            random.choice("🍎🍊🍐🍋🍉🍇🍓🍒🍌🍕")
             for _ in range(3)
         ]
         slotmachine = f"**[ {a} {b} {c} ]\n{ctx.author.name}**,"
