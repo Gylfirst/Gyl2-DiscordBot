@@ -66,6 +66,18 @@ class Fun_Commands(commands.Cog):
         await self.randomimageapi(ctx, "https://random-d.uk/api/v1/random", "url")
 
     @commands.command()
+    async def cheh(self, ctx: Context[BotT], user: discord.Member = None):
+        """ Cheh someone """
+        if not user :
+            return await ctx.send("Error: specify a username")
+        else :
+            if user is not ctx.author :
+                await ctx.send(f"**{ctx.author.name}** has cheh **{user.name}**")
+                await ctx.send("https://tenor.com/view/cheh-true-cheh-gif-19162969")
+            else :
+                await ctx.send(f"**{ctx.author.name}** essaye de dire quelque chose")
+
+    @commands.command()
     @commands.cooldown(rate=1, per=1.5, type=commands.BucketType.user)
     async def coffee(self, ctx: Context[BotT]):
         """ Posts a random coffee """
